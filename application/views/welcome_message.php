@@ -125,7 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<div id="body">
 		<h4>
-		Hi. Hello,,  <br>
+		Hi. Hello,, welcome <br>
 		 <br>
 		 <br>
 		 Nama : Mokhammad Zainul Fadli <br>

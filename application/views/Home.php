@@ -120,20 +120,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--Isi-->
 <body>
 <br><br>
-<div id="container">
-	<h1><b><center>Ini Adalah Halaman Home</center></b></h1>
-
-	<div id="body">
-		<h4>
-		Hi. Hello,,  <br>
-		 <br>
-		 <br>
-		 Nama : Mokhammad Zainul Fadli <br>
-		 Nim  : 1641720076 <br>
-		</h4>
+	<div class="col-xs-6 col-sm-6 col-md-6 cil-lg-6">
+		<div class="table-responsive">
+			<h1>Biodata Saya dari Array</h1>
+				<table class="table table-hover">
+					<tbody>
+						<?php foreach ($biodata_array as $key) {?>
+						<tr>
+							<td><?php echo $key['nama']?></td>
+						</tr>
+						<tr>
+							<td><?php echo $key['nim']?></td>
+						</tr>
+						<tr>
+							<td><?php echo $key['alamat']?></td>
+						</tr>
+						<?php } ?>
+					</tbody>
+				</table>
+		</div>
 	</div>
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
+	<div class="col-xs-6 col-sm-6 col-md-6 cil-lg-6">
+		<div class="table-responsive">
+			<h1>Biodata Saya dari Object</h1>
+				<table class="table table-hover">
+					<tbody>
+						<?php foreach ($biodata_object as $key) {?>
+						<tr>
+							<td><?php echo $key->nama?></td>
+						</tr>
+						<tr>
+							<td><?php echo $key->nim?></td>
+						</tr>
+						<tr>
+							<td><?php echo $key->alamat?></td>
+						</tr>
+						<?php } ?>
+					</tbody>
+				</table>
+		</div>
+	</div>
 
 </body>
 </html>
