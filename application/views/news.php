@@ -119,21 +119,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!--Isi-->
 <body>
-<br><br>
-<div id="container">
-	<h1><b><center>Ini Adalah Halaman News</center></b></h1>
-
-	<div id="body">
-		<h4>
-		Hi. Hello,,  <br>
-		 <br>
-		 <br>
-		 Nama : Mokhammad Zainul Fadli <br>
-		 Nim  : 1641720076 <br>
-		</h4>
+<div class ="col-lg-8">
+	<div class="panel-body">
 	</div>
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+	</div>
+<div id="container" class ="col-lg-3" align="center">
+	<div class="panel-heading">
+		<b>Daftar List</b>
+	</div>
+	
 </div>
 
+<?php foreach ($news_object as $key) {?>
+<div id="container" class="col-lg-8">
+	
+	<h1><b><center><?php echo $key->title?></center></b></h1>
+	<br><right><?php echo $key->date?></right>
+	
+	<div class="row">	
+		<?php echo '<img src="application/image/$key->image_file.jpg"'?> <br>
+			<div class="panel-body">					
+				<tr>
+					<td><?php echo $key->content?></td>
+				</tr>
+				<br><?php echo $key->author?>
+		
+			</div>	
+	</div>
+</div>
+<?php } ?>
 </body>
 </html>
