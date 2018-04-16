@@ -6,33 +6,14 @@ class Home extends CI_Controller {
 
 	 public function index()
  	{
+ 		$this->load->view("templates/header");
 		$this->load->model('biodata');
 		$data['biodata_array']=$this->biodata->getBiodataQueryArray();
 		$data['biodata_object']=$this->biodata->getBiodataQueryObject();
+		//$data['records']= $this->news->getAll();
+		//$this->load->view('news',$data);
 		$this->load->view('home',$data);
- 	}
-
- 	public function about()
- 	{
- 		$this->load->view('about');
- 	}
-
- 	public function contact()
- 	{
- 		$this->load->view('contact');
- 	}
-
- 	public function news()
- 	{
- 		$this->load->model('news');
-		$data['news_object']=$this->news->getBlogViewObject();
-		$data['news_array']=$this->news->getBlogViewArray();
- 		$this->load->view('news',$data);
- 	}
-
- 	public function blog()
- 	{
- 		$this->load->view('blog');
+		$this->load->view("templates/footer");
  	}
 
  	function __construct()
@@ -40,6 +21,4 @@ class Home extends CI_Controller {
  		parent:: __construct();
  		$this->load->helper('url');
  	}
-
-
 }

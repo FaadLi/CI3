@@ -20,9 +20,11 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->view("templates/header");
 		$this->load->model('biodata');
 		$data['biodata_array']=$this->biodata->getBiodataQueryArray();
 		$data['biodata_object']=$this->biodata->getBiodataQueryObject();
 		$this->load->view('home',$data);
+		$this->load->view("templates/footer");
 	}
 }

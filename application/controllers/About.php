@@ -20,11 +20,8 @@ class About extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->view("templates/header");
 		$this->load->view('about');
-	}
-
-	public function about()
-	{
-		$this->load->view('about_view');
+		$this->load->view("templates/footer");
 	}
 }
