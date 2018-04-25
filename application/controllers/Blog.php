@@ -3,6 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Blog extends CI_Controller {
 
+	function __construct()
+ 	{
+ 		parent:: __construct();
+
+ 		$this->load->helper('MY');
+ 		$this->load->model('blog_model');
+ 		$this->load->model('Category_model');
+
+ 	}
 
 	 public function index()
  	{
@@ -41,6 +50,8 @@ class Blog extends CI_Controller {
 	    $this->load->helper('form');
 	    $this->load->library('form_validation');
 
+	    $data['categories']= $this->Category_model->generate_cat_dropdown();
+
 	    // Kita validasi input sederhana, sila cek http://localhost/ci3/user_guide/libraries/form_validation.html
 	    $this->form_validation->set_rules('title', 'Judul', 'required');
 	    $this->form_validation->set_rules('text', 'Konten', 'required');
@@ -49,11 +60,11 @@ class Blog extends CI_Controller {
 	    if ($this->form_validation->run() === FALSE)
 	    {
 	        $this->load->view('templates/header');
-	        $this->load->view('blog_create');
+	        $this->load->view('blog_create',$data);
 	        $this->load->view('templates/footer');
 
 	    } else {
-
+ 
     		// Apakah user upload gambar?
     		if ( isset($_FILES['thumbnail']) && $_FILES['thumbnail']['size'] > 0 )
     		{
@@ -272,9 +283,5 @@ class Blog extends CI_Controller {
 
 
 
- 	function __construct()
- 	{
- 		parent:: __construct();
- 		$this->load->helper('url');
- 	}
+ 	
 }

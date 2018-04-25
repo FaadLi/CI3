@@ -31,11 +31,11 @@
 							
 							<!-- Load thumbnail, jika ada -->
 							<?php if( $key->post_thumbnail ) : ?>
-							<img class="card-img-top" src="<?php echo base_url() .'uploads/'. $key->post_thumbnail ?>" alt="Card image cap">
+							<img class="card-img-top" src="<?php echo base_url() .'uploads/'. $key->post_thumbnail ?>" alt="Card image cap" width="300">
 							
 							<!-- Jika tidak ada thumbnail, gunakan holder.js -->
 							<?php ; else : ?>
-							<img class="card-img-top" data-src="holder.js/100px190?theme=thumb&bg=eaeaea&fg=aaa&text=Thumbnail" alt="Card image cap">
+							<img class="card-img-top" data-src="holder.js/100px190?theme=thumb&bg=eaeaea&fg=aaa&text=Thumbnail" alt="Card image cap" >
 							<?php endif; ?>
 							
 							<div class="card-body">
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 		<?php else : ?>
-		<p>Belum ada data bosque.</p>
+		<p>Belum ada data.</p>
 		<?php endif; ?>
 		
 	</main>

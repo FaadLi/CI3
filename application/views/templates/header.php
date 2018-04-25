@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="assets/js/bootstrap.min.js"></script>
 
 
-
+<!--
 	<style type="text/css">
 
 	::selection { background-color: #E13300; color: white; }
@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	</style>
 
-
+-->
 
 </head>
 <!-- Atas -->

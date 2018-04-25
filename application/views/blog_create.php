@@ -26,6 +26,11 @@
 						<input type="text" class="form-control" name="title">
 					</div>
 					<div class="form-group">
+						<label>Kategori</label>
+						<?php echo form_dropdown('cat_id', $categories, set_value('cat_id'), 'class="form-control" required' ); ?>
+						<div class="invalid-feedback">Pilih dulu kategorinya</div>
+					</div>
+					<div class="form-group">
 						<label for="text">Konten</label>
 						<textarea class="form-control" name="text" rows="3"></textarea>
 					</div>
