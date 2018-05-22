@@ -8,10 +8,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<script src="assets/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="assets/scss/style.css">
+    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
 
 <!--
@@ -76,44 +84,120 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 -->
 
+
 </head>
+		<?php if($this->session->flashdata('user_registered')): ?> 
+        	<?php echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('user_registered').'</div>'; ?>
+       	<?php endif; ?>
+
+       	<?php if($this->session->flashdata('login_failed')): ?>
+         	<?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
+       	<?php endif; ?>
+
+       	<?php  if ($this->session->flashdata('user_loggedin')): ?>
+       		<?php echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('user_loggedin').'</div>'; ?>
+       	<?php endif; ?>
+
+        <?php if($this->session->flashdata('user_loggedout')): ?>
+         	<?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
+       <?php endif; ?>
 <!-- Atas -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="<?php echo site_url('welcome')?>">WebSiteKu</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="<?php echo site_url('home')?>">Home</a></li>
-			<li><a href="<?php echo site_url('news')?>">News</a></li>
-      <li><a href="<?php echo site_url('contact')?>">Contact</a></li>
-      <li><a href="<?php echo site_url('blog')?>">Blog</a></li>
-    </ul>
+    <?php if ($this->session->userdata('user/login') != null): ?>
 
-    <ul class="nav navbar-nav navbar-right">
+    		<!-- Punya User -->
+    	<?php if($this->session->userdata('user/login')['username'] != 'admin'){ ?>
+
+		    <ul class="nav navbar-nav">
+		      <li class="active"><a href="<?php echo site_url('home')?>">Home</a></li>
+					<li><a href="<?php echo site_url('news')?>">News</a></li>
+		      <li><a href="<?php echo site_url('contact')?>">Contact</a></li>
+		      <li><a href="<?php echo site_url('blog')?>">Blog</a></li>
+		    </ul>
+
+		    <ul class="nav navbar-nav navbar-right">
+				<form class="navbar-form navbar-left" action="/action_page.php">
+		      		<div class="form-group">
+		        		<input type="text" class="form-control" placeholder="Search">
+		      		</div>
+		      		<button type="submit" class="btn btn-default">Submit</button>
+		    	</form>
+
+		      <li><a href="<?php echo site_url('about')?>"></span> About</a></li>
+		      <li><a href="<?php echo site_url('User/logout')?>"></span> Logout user</a></li>
+				
+				<li class="dropdown">
+					 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+				 	<ul class="dropdown-menu">
+						<li><a href="#">Menu 1</a></li>
+						<li><a href="#">Menu 2</a></li>
+						<li><a href="#">Menu 3</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">Menu 4</a></li>
+				 	</ul>
+				</li>
+			</ul>
+			<!-- Punya Admin -->
+    	<?php }else if($this->session->userdata('user/login')['username'] == 'admin'){ ?>
+
+		    <ul class="nav navbar-nav">
+		      <li class="active"><a href="<?php echo site_url('home')?>">Home</a></li>
+					<li><a href="<?php echo site_url('news')?>">News</a></li>
+		      <li><a href="<?php echo site_url('contact')?>">Contact</a></li>
+		      <li><a href="<?php echo site_url('blog')?>">Blog</a></li>
+		    </ul>
+
+		    <ul class="nav navbar-nav navbar-right">
+				<form class="navbar-form navbar-left" action="/action_page.php">
+		      		<div class="form-group">
+		        		<input type="text" class="form-control" placeholder="Search">
+		      		</div>
+		      		<button type="submit" class="btn btn-default">Submit</button>
+		    	</form>
+
+		      <li><a href="<?php echo site_url('about')?>"></span> About</a></li>
+		      <li><a href="<?php echo site_url('User/logout')?>"></span> Logout Admin</a></li>
+				
+				<li class="dropdown">
+					 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+				 	<ul class="dropdown-menu">
+						<li><a href="#">Menu 1</a></li>
+						<li><a href="#">Menu 2</a></li>
+						<li><a href="#">Menu 3</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">Menu 4</a></li>
+				 	</ul>
+				</li>
+			</ul>
+		<?php } ?>
+
+    <?php else: ?>
+
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="<?php echo site_url('home')?>">Home</a></li>
+				<li><a href="<?php echo site_url('news')?>">News</a></li>
+	      <li><a href="<?php echo site_url('contact')?>">Contact</a></li>
+	      
+	    </ul>
+
+	    <ul class="nav navbar-nav navbar-right">
 			<form class="navbar-form navbar-left" action="/action_page.php">
-      	<div class="form-group">
-        	<input type="text" class="form-control" placeholder="Search">
-      	</div>
-      	<button type="submit" class="btn btn-default">Submit</button>
-    	</form>
-
-      <li><a href="<?php echo site_url('about')?>"></span> About</a></li>
-
-
-			<li class="dropdown">
-			 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-			 <ul class="dropdown-menu">
-				 <li><a href="#">Menu 1</a></li>
-				 <li><a href="#">Menu 2</a></li>
-				 <li><a href="#">Menu 3</a></li>
-				 <li role="separator" class="divider"></li>
-				 <li><a href="#">Menu 4</a></li>
-			 </ul>
-		 </li>
-
-
-
-    </ul>
+	      		<div class="form-group">
+	        		<input type="text" class="form-control" placeholder="Search">
+	      		</div>
+	      		<button type="submit" class="btn btn-default">Submit</button>
+	    	</form>
+	    	
+	    	<li><a href="<?php echo site_url('User/login')?>"></span> Login</a></li>
+	      	<li><a href="<?php echo site_url('about')?>"></span> About</a></li>
+	      
+			
+			
+		</ul>
+	<?php endif ?>
   </div>
 </nav>
