@@ -29,5 +29,13 @@
 		</div>
 	</section>
 	
+	<div class="container">
+		<center>
+			<?php 
+	        if(isset($links)){
+	          echo $links;
+	        } ?>	
+    	</center>
+	</div>
 </main>
 </body>

@@ -6,10 +6,12 @@ class Home extends CI_Controller {
 
 	 public function index()
  	{
- 		$this->load->view("templates/header");
-		$this->load->model('biodata');
-		$data['biodata_array']=$this->biodata->getBiodataQueryArray();
+ 		$this->load->model('biodata');
+ 		$data['biodata_array']=$this->biodata->getBiodataQueryArray();
 		$data['biodata_object']=$this->biodata->getBiodataQueryObject();
+ 		$this->load->view("templates/header");
+		
+		
 		//$data['records']= $this->news->getAll();
 		//$this->load->view('news',$data);
 		$this->load->view('home',$data);

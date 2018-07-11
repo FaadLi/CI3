@@ -4,200 +4,201 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Welcome to Website</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	
-	<link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
-    <link rel="stylesheet" href="assets/scss/style.css">
-    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" >
 
+	<link rel="stylesheet"  href="https://code.jquery.com/jquery-3.3.1.js">
 
-<!--
-	<style type="text/css">
+	<link rel="stylesheet"  href="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
 
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
-
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
-
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
-
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
-
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
-
-	#body {
-		margin: 0 15px 0 15px;
-	}
-
-	p.footer {
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-
-	#container {
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
-
--->
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
-		<?php if($this->session->flashdata('user_registered')): ?> 
-        	<?php echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('user_registered').'</div>'; ?>
-       	<?php endif; ?>
 
-       	<?php if($this->session->flashdata('login_failed')): ?>
-         	<?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
-       	<?php endif; ?>
 
-       	<?php  if ($this->session->flashdata('user_loggedin')): ?>
-       		<?php echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('user_loggedin').'</div>'; ?>
-       	<?php endif; ?>
+	
 
-        <?php if($this->session->flashdata('user_loggedout')): ?>
-         	<?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
-       <?php endif; ?>
-<!-- Atas -->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="<?php echo site_url('welcome')?>">WebSiteKu</a>
-    </div>
+
+
+
+<!--  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+ 	<a class="navbar-brand" href="<?php echo site_url('welcome')?>">WebSiteKu</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+    </button>
+
     <?php if ($this->session->userdata('user/login') != null): ?>
 
     		<!-- Punya User -->
     	<?php if($this->session->userdata('user/login')['username'] != 'admin'){ ?>
+    		<div class="collapse navbar-collapse">
+		    	<ul class="navbar-nav mr-auto">
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('home')?>">Home</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('news')?>">News</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('contact')?>">Contact</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('blog')?>">Blog</a>
+			      	</li>
 
-		    <ul class="nav navbar-nav">
-		      <li class="active"><a href="<?php echo site_url('home')?>">Home</a></li>
-					<li><a href="<?php echo site_url('news')?>">News</a></li>
-		      <li><a href="<?php echo site_url('contact')?>">Contact</a></li>
-		      <li><a href="<?php echo site_url('blog')?>">Blog</a></li>
-		    </ul>
+			      	<li class="nav-item dropdown">
+        				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Tabel</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          					<a class="dropdown-item" href="<?php echo site_url('Datatables') ?>">Basic</a>
+          					<a class="dropdown-item" href="<?php echo site_url('Datatables/json') ?>">JSon</a>
+          				<div class="dropdown-divider"></div>
+          					<a class="dropdown-item" href="#">Something else here</a>
+        				</div>
+      				</li>
+
+		    	</ul>
+
 
 		    <ul class="nav navbar-nav navbar-right">
-				<form class="navbar-form navbar-left" action="/action_page.php">
-		      		<div class="form-group">
-		        		<input type="text" class="form-control" placeholder="Search">
-		      		</div>
-		      		<button type="submit" class="btn btn-default">Submit</button>
-		    	</form>
+				<form class="form-inline my-2 my-lg-0">
+      				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    			</form>
 
-		      <li><a href="<?php echo site_url('about')?>"></span> About</a></li>
-		      <li><a href="<?php echo site_url('User/logout')?>"></span> Logout user</a></li>
-				
-				<li class="dropdown">
-					 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-				 	<ul class="dropdown-menu">
-						<li><a href="#">Menu 1</a></li>
-						<li><a href="#">Menu 2</a></li>
-						<li><a href="#">Menu 3</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Menu 4</a></li>
-				 	</ul>
-				</li>
+		    	<ul class="navbar-nav mr-auto">
+		    		<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('about')?>">About</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('user/logout')?>">LogOut</a>
+			      	</li>
+			     </ul>
 			</ul>
-			<!-- Punya Admin -->
+		</div>
+
+
+		<!-- Punya Admin -->
     	<?php }else if($this->session->userdata('user/login')['username'] == 'admin'){ ?>
+    		<div class="collapse navbar-collapse">
+		    	<ul class="navbar-nav mr-auto">
+			      	<li class="nav-item ">
+			      		<a class="nav-link" href="<?php echo site_url('home')?>">Home</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('news')?>">News</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('contact')?>">Contact</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('blog')?>">Blog</a>
+			      	</li>
 
-		    <ul class="nav navbar-nav">
-		      <li class="active"><a href="<?php echo site_url('home')?>">Home</a></li>
-					<li><a href="<?php echo site_url('news')?>">News</a></li>
-		      <li><a href="<?php echo site_url('contact')?>">Contact</a></li>
-		      <li><a href="<?php echo site_url('blog')?>">Blog</a></li>
-		    </ul>
+			      	<li class="nav-item dropdown">
+        				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          					<a class="dropdown-item" href="#">Action</a>
+          					<a class="dropdown-item" href="#">Another action</a>
+          				<div class="dropdown-divider"></div>
+          					<a class="dropdown-item" href="#">Something else here</a>
+        				</div>
+      				</li>
+
+		    	</ul>
+
 
 		    <ul class="nav navbar-nav navbar-right">
-				<form class="navbar-form navbar-left" action="/action_page.php">
-		      		<div class="form-group">
-		        		<input type="text" class="form-control" placeholder="Search">
-		      		</div>
-		      		<button type="submit" class="btn btn-default">Submit</button>
-		    	</form>
+				<form class="form-inline my-2 my-lg-0">
+      				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    			</form>
 
-		      <li><a href="<?php echo site_url('about')?>"></span> About</a></li>
-		      <li><a href="<?php echo site_url('User/logout')?>"></span> Logout Admin</a></li>
-				
-				<li class="dropdown">
-					 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-				 	<ul class="dropdown-menu">
-						<li><a href="#">Menu 1</a></li>
-						<li><a href="#">Menu 2</a></li>
-						<li><a href="#">Menu 3</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Menu 4</a></li>
-				 	</ul>
-				</li>
+		    	<ul class="navbar-nav mr-auto">
+		    		<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('about')?>">About</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('user/logout')?>">Logout</a>
+			      	</li>
+			     </ul>
 			</ul>
+		</div>
 		<?php } ?>
 
     <?php else: ?>
 
-	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="<?php echo site_url('home')?>">Home</a></li>
-				<li><a href="<?php echo site_url('news')?>">News</a></li>
-	      <li><a href="<?php echo site_url('contact')?>">Contact</a></li>
-	      
-	    </ul>
+	    <div class="collapse navbar-collapse">
+		    	<ul class="navbar-nav mr-auto">
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('home')?>">Home</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('news')?>">News</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('contact')?>">Contact</a>
+			      	</li>
+			      	
+			      	<li class="nav-item dropdown">
+        				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          					<a class="dropdown-item" href="#">Action</a>
+          					<a class="dropdown-item" href="#">Another action</a>
+          				<div class="dropdown-divider"></div>
+          					<a class="dropdown-item" href="#">Something else here</a>
+        				</div>
+      				</li>
 
-	    <ul class="nav navbar-nav navbar-right">
-			<form class="navbar-form navbar-left" action="/action_page.php">
-	      		<div class="form-group">
-	        		<input type="text" class="form-control" placeholder="Search">
-	      		</div>
-	      		<button type="submit" class="btn btn-default">Submit</button>
-	    	</form>
-	    	
-	    	<li><a href="<?php echo site_url('User/login')?>"></span> Login</a></li>
-	      	<li><a href="<?php echo site_url('about')?>"></span> About</a></li>
-	      
-			
-			
-		</ul>
+		    	</ul>
+
+
+		    <ul class="nav navbar-nav navbar-right">
+
+		    	<ul class="navbar-nav mr-auto">
+		    		<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('about')?>">About</a>
+			      	</li>
+			      	<li class="nav-item">
+			      		<a class="nav-link" href="<?php echo site_url('user/login')?>">Login</a>
+			      	</li>
+			     </ul>
+			</ul>
+		</div>
 	<?php endif ?>
   </div>
 </nav>
+
+<br><br><br>
+<?php if($this->session->flashdata('user_registered')): ?> 
+    	<?php echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('user_registered').'<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>'.'</div>'; ?>
+   	<?php endif; ?>
+
+   	<?php if($this->session->flashdata('login_failed')): ?>
+     	<?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>'.'</p>'; ?>
+   	<?php endif; ?>
+
+   	<?php  if ($this->session->flashdata('user_loggedin')): ?>
+   		<?php echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('user_loggedin').'<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>'.
+   		'</div>'; ?>
+   	<?php endif; ?>
+
+    <?php if($this->session->flashdata('user_loggedout')): ?>
+     	<?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>'.'</p>'; ?>
+   <?php endif; ?>
+
+<!-- Atas -->
+

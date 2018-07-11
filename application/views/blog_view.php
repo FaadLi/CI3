@@ -2,15 +2,16 @@
 
 	<!-- Begin page content -->
 	<body>
-
+		<br>
 	<main role="main">
-		<section class="jumbotron text-center">
+		<section class="">
 			<div class="container">
-				<h1 class="jumbotron-heading">My Simple Blog</h1>
-				
-				<p>
-					<a href="<?php echo base_url() ?>blog/create" class="btn btn-primary my-2">Tulis Artikel</a>
-				</p>
+				<div class="row">
+					<h1 class="jumbotron-heading">Buat Artikel Baru</h1>
+					&nbsp; &nbsp;
+					<p>
+						<a href="<?php echo base_url() ?>index.php/blog/create" class="btn btn-primary my-2">Tulis Artikel</a>
+					</p>
 			</div>
 		</section>
 
@@ -47,8 +48,8 @@
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
 										<!-- Untuk link detail -->
-										<a href="<?php echo base_url(). 'blog/read/' . $key->post_slug ?>" class="btn btn-outline-secondary">Baca</a>
-										<a href="<?php echo base_url(). 'blog/edit/' . $key->id ?>" class="btn btn-outline-secondary">Edit</a>
+										<a href="<?php echo base_url(). 'index.php/blog/read/' . $key->post_slug ?>" class="btn btn-outline-secondary">Baca</a>
+										<a href="<?php echo base_url(). 'index.php/blog/edit/' . $key->id ?>" class="btn btn-outline-secondary">Edit</a>
 									</div>
 									<small class="text-muted"><?php echo $key->post_date ?></small>
 								</div>
@@ -65,6 +66,12 @@
 		<p>Belum ada data.</p>
 		<?php endif; ?>
 		
+
+		<?php 
+		if (isset($links)) {
+			echo $links;
+		} 
+		?> 
 	</main>
 </body>
 	

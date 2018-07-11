@@ -1,14 +1,17 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!-- Begin page content -->
 <body>
-<main role="main" class="container">
-	<section class="jumbotron text-center">
+<main style= "/*padding-top: 100px;*/ padding-bottom: 100px; padding-left: 100px; padding-right: 100px;"role="main" class="container">
+ 	
+ 	<div  class="jumbotron"> 
+	<section style= "padding-top: 0px; padding-bottom: 0px;" class="jumbotron text-center">
 		<div class="container">
 			<h1 class="jumbotron-heading">Tulis Artikel Baru</h1>
 		</div>
 	</section>
+	<hr class="my-4">
 	<section>
-		<div class="container">
+		<div style= "padding-top: 0px;" class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2">
 					
@@ -30,6 +33,7 @@
 						<?php echo form_dropdown('cat_id', $categories, set_value('cat_id'), 'class="form-control" required' ); ?>
 						<div class="invalid-feedback">Pilih dulu kategorinya</div>
 					</div>
+					
 					<div class="form-group">
 						<label for="text">Konten</label>
 						<textarea class="form-control" name="text" rows="3"></textarea>
@@ -43,6 +47,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </section>
 </main>
 </body>

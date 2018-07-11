@@ -38,6 +38,22 @@ class Blog_model extends CI_Model {
     	return $query->result();
     }
 
+    public function get_all_artikel_limit($limit = FALSE, $offset = FALSE)
+    {
+        if($limit){
+            $this->db->limit($limit,$offset);
+        }
+
+        $this->db->order_by('blogs.post_date', 'DESC');
+
+        
+        $this->db->join('categories', 'categories.cat_id = blogs.cat_id');
+        
+        $query = $this->db->get('blogs');
+        return $query->result();
+    }
+
+
     public function get_artikel_by_id($id)
     {
     	$query = $this->db->get_where('blogs', array('id' => $id));
@@ -76,5 +92,9 @@ class Blog_model extends CI_Model {
     	} else {
     		return false;
     	}
+    }
+    public function get_total()
+    {
+        return $this->db->count_all('blogs');
     }
 }
