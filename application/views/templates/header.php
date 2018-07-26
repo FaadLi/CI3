@@ -37,6 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     		<!-- Punya User -->
     	<?php if($this->session->userdata('user/login')['username'] != 'admin'){ ?>
+    		<?php   $a = $this->session->userdata('user/login');?>
     		<div class="collapse navbar-collapse">
 		    	<ul class="navbar-nav mr-auto">
 			      	<li class="nav-item">
@@ -62,6 +63,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         				</div>
       				</li>
 
+      				
+
 		    	</ul>
 
 
@@ -72,11 +75,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     			</form>
 
 		    	<ul class="navbar-nav mr-auto">
-		    		<li class="nav-item">
+		    		
+			      	
+			      	<li class="dropdown-toggle"></li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi. <?php echo $a['username']; ?></a>
+
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="<?php echo site_url('user/profil')?>">Profil</a>
+                    
+                        <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="<?php echo site_url('user/logout')?>">LogOut</a>
+                        </div>
+                      </li>
+					<li class="nav-item">
 			      		<a class="nav-link" href="<?php echo site_url('about')?>">About</a>
-			      	</li>
-			      	<li class="nav-item">
-			      		<a class="nav-link" href="<?php echo site_url('user/logout')?>">LogOut</a>
 			      	</li>
 			     </ul>
 			</ul>

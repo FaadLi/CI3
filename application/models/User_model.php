@@ -33,5 +33,14 @@ class User_model extends CI_Model{
        }
    }
 
+   public function getData($user_id){
+    $this->db->select('*');
+    $this->db->from('users');
+    $this->db->where('user_id',$user_id);
+    
+    $query = $this->db->get();
+    return $query->result();
+   }
+
  }
 ?>

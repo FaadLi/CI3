@@ -59,12 +59,18 @@ class User extends CI_Controller{
 
             // Login user
             $user_id = $this->user_model->login($username, $password);
-
+            
             if($user_id){
                 // Buat session
+                $data = $this->user_model->getData($user_id);
+
                 $user_data = array(
                     'user_id' => $user_id,
                     'username' => $username,
+                    'nama' => $data[0]->nama,
+                    'email' => $data[0]->email,
+                    'kodepos' => $data[0]->kodepos,
+                    'register_date' => $data[0]->register_date,
                     'logged_in' => true
                 );
                  $this->session->set_userdata('user/login',$user_data);
@@ -107,5 +113,26 @@ class User extends CI_Controller{
 
         redirect('welcome','refresh');
     }
+    public function profil(){
+        $this->load->view('templates/header');
+        $this->load->view('users/profil');
+        $this->load->view('templates/footer');
+    }
 
+    public function coba()
+    {
+       
+        //var_dump($this->Login_model->getRole('admin'));
+
+        var_dump($this->session->userdata('user/login'));
+
+        // $a = $this->session->userdata('login');
+        // echo $a['username'];
+
+    
+
+//      $this->session->userdata('login');
+
+        
+    }
 }
